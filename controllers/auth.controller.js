@@ -107,7 +107,7 @@ exports.singin = async (req, res) => {
 
     res.status(200).send({
         name: user.name,
-        userId: user.userid,
+        userId: user.userId,
         email: user.email,
         userType: user.userType,
         accessToken: token
