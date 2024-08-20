@@ -49,7 +49,7 @@ const verifySignUpBody = async (req, res, next) => {
 
 
 const verifySignInBody = async (req, res) => {
-    try {
+    // try {
         if (!req.body.userId) {
             return res.status(400).send({
                 message: "userid is not provided in request "
@@ -63,19 +63,21 @@ const verifySignInBody = async (req, res) => {
             })
         }
 
-        const checkdata = await user_Model.find({ userId: req.body.userId })
-        if (!checkdata) {
-            return res.status(400).send({
-                message: "user is not registed please register first"
-            })
-        }
+        next()
 
-    } catch (error) {
-        console.log("error while validating the request object", error)
-        res.status(500).send({
-            message: "error while validating the request body"
-        })
-    }
+        // const checkdata = await user_Model.find({ userId: req.body.userId })
+        // if (!checkdata) {
+        //     return res.status(400).send({
+        //         message: "user is not registed please register first"
+        //     })
+        // }
+
+    // } catch (error) {
+    //     console.log("error while validating the request object", error)
+    //     res.status(500).send({
+    //         message: "error while validating the request body"
+    //     })
+    // }
 }
 
 
